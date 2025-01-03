@@ -28,6 +28,3 @@ phases:
       - echo "Pushing Docker image to Amazon ECR..."
       - docker push $REPOSITORY_URI:$IMAGE_TAG
 
-  artifacts:
-  files:
-    - '**/*'
