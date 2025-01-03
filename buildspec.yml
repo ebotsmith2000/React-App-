@@ -5,7 +5,7 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws --version
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 677980270894.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 510786428272.dkr.ecr.us-east-1.amazonaws.com
       - export REPOSITORY_URI=510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app
       - export TIMESTAMP=$(date +'%Y%m%d%H%M%S')
       - export IMAGE_TAG=latest-${TIMESTAMP}
@@ -13,11 +13,11 @@ phases:
   build:
     commands:
       - echo "Building Docker image..."
-      - docker build -t ecrapsouthdemo001 .
+      - docker build -t react-app .
       - echo "Adding tag to Docker image..."
-      - docker tag ecrapsouthdemo001:latest $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag react-app:latest 510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app:latest
 
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push 510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app:latest
