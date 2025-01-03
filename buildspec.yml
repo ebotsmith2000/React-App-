@@ -28,4 +28,4 @@ phases:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       - docker push 510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app:latest
-      - docker push $DOCKER_REGISTRY_URL:$IMAGE_TAG
+     # - docker push $DOCKER_REGISTRY_URL:$IMAGE_TAG
