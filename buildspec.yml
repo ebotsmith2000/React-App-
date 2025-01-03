@@ -22,7 +22,7 @@ phases:
       - echo "Building Docker image..."
       - docker build -t react-app .
       - echo "Adding tag to Docker image..."
-      - docker tag react-app:latest $DOCKER_REGISTRY_URL:$IMAGE_TAG
+      - docker tag react-app:latest $DOCKER_REGISTRY_URL:latest
 
   post_build:
     commands:
