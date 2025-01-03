@@ -22,9 +22,10 @@ phases:
       - echo "Building Docker image..."
       - docker build -t react-app .
       - echo "Adding tag to Docker image..."
-      - docker tag react-app:latest 510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app:latest
+      - docker tag react-app:latest $DOCKER_REGISTRY_URL:$IMAGE_TAG
 
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       - docker push 510786428272.dkr.ecr.us-east-1.amazonaws.com/react-app:latest
+      - docker push $DOCKER_REGISTRY_URL:$IMAGE_TAG
