@@ -27,3 +27,10 @@ phases:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+
+  artifacts:
+  files:
+    - '**/*'
+  base-directory: base_dir
+  name: build-artifact-name
+  discard-paths: no
